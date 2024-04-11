@@ -32,7 +32,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem "braintree", "~> 4.19.0"
 gem 'money-rails'
 gem 'bootstrap', '~> 5.3.2'
-gem 'dartsass-sprockets'
+gem 'sassc-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
