@@ -6,41 +6,31 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="<%= @offer.image_url %>">
   <title>SDN | <%= @offer.title %></title>
-  
+
 </head>
 
 <body>
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8 mb-4">
-      <div class="offer-show d-flex"> <!-- Utilisation de Flexbox pour la disposition -->
+      <div class="offer-show"> <!-- Utilisation de Flexbox pour la disposition -->
         <!-- Colonne pour l'image/vidéo -->
-        <div class="offer-media mr-5" style="margin-top: 3rem; padding-right: 3rem;">
+        <div class="offer-media mx-auto d-block" style="margin-top: 3rem;">
           <% if @offer.image_url.present? %>
-            <video class="img-fluid" autoplay loop muted>
+            <video class="img-fluid mx-auto d-block" style="padding: 1rem;" autoplay loop muted>
               <source src="<%= @offer.image_url %>" type="video/mp4">
               Votre navigateur ne supporte pas la balise vidéo.
             </video>
           <% end %>
-          <h2 class="offer-title"><%= @offer.title %></h2>
+          <h2 class="offer-title text-center"><%= @offer.title %></h2>
           <div class="offer-price mt-2">
-            <h5><%= number_to_currency(@offer.price, unit: "€") %></h5>
-          </div>
-          <div class="paypal-button-container"
-                data-pp-message
-                data-pp-style-layout="text"
-                data-pp-style-logo-type="inline"
-                data-pp-style-text-color="black"
-                data-pp-amount="<%= sprintf('%.2f', @offer.price.to_f) %>">
-          </div>
-          <p class="offer-description"><%= @offer.description %></p>
-        </div>
+            <h5 class="text-center" style="padding: 1rem;">
+              <%= number_to_currency(@offer.price, unit: "€") %>
+            </h5>
 
-        <!-- Colonne le paiement -->
-        <div class="offer-details flex-grow-1">
-          <!-- Module de paiement ici -->
-          <div id="dropin-container" class="mt-3" style="margin-top: 3rem; margin-left: 3rem !important;"></div>
-          <button id="submit-button" class="btn btn-primary custom-btn" style="margin-left: 10rem !important;">Valider</button>
+          </div>
+          <p class="offer-description text-center"><%= @offer.description %></p>
+          <a class="btn btn-primary custom-btn d-block mx-auto" style="margin-top: 3rem;" href="<%= contact_path %>">Contacter</a>
         </div>
       </div>
     </div>
