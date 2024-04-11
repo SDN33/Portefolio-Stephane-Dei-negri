@@ -263,6 +263,7 @@ body, html {
 /* Afficher le sous-menu au survol */
 .navbar .dropdown:hover .submenu {
   display: block;
+
 }
 
 /* Style supplémentaire pour les liens */
@@ -274,7 +275,7 @@ body, html {
 
 /* Style au survol des éléments du menu */
 .navbar .menu li:hover {
-  background-color: $color-background;
+  background-color: $color-hover !important;
 }
 
 span {
