@@ -14,6 +14,8 @@ test:
   database: pfsdn_test
 
 production:
-  <<: *default
-  database: pfsdn_production
   url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
