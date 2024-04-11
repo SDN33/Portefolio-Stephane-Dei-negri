@@ -1,0 +1,82 @@
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="description" content="<%= @project.description %>">
+  <meta property="og:title" content="SDN | <%= @project.title %>">
+  <meta property="og:description" content="<%= @project.description %>">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="<%= @project.image_url %>">
+  <title>SDN | <%= @project_title %></title>
+</head>
+<body>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="project-show text-center">
+        <% if @project.image_url.present? %>
+          <video class="img-fluid" autoplay loop muted>
+            <source src="<%= @project.image_url %>" type="video/mp4">
+            Votre navigateur ne supporte pas la balise vidéo.
+          </video>
+        <% end %>
+        <div class="project-details mt-3">
+          <h2 class="project-title"><%= @project.title %></h2>
+
+          <div class="project-category">
+            <h5>
+              <% case @project.category %>
+              <% when "Site Portfolio" %>
+                <i class="fas fa-briefcase"></i> <%= @project.category %>
+              <% when "Web App" %>
+                <i class="fas fa-mobile-alt"></i> <%= @project.category %>
+              <% when "Logo Pro" %>
+                <i class="fa-solid fa-pencil"></i> <%= @project.category %>
+              <% else %>
+                <%= @project.category %>
+              <% end %>
+            </h5>
+          </div>
+          <br>
+          <p class="project-description"><%= @project.description %></p>
+        </div>
+      </div>
+      <br>
+      <div class="social-share">
+        <p>Partager :</p>
+        <%= link_to raw('<i class="fa-brands fa-x-twitter"></i>'), "https://twitter.com/intent/tweet?text=#{CGI.escape('Découvrez ce projet: ' + project_url(@project))}", target: "_blank", class: "twitter-share-button" %>
+        <%= link_to raw('<i class="fa-brands fa-facebook"></i>'), "https://www.facebook.com/sharer/sharer.php?u=#{CGI.escape(project_url(@project, host: request.host_with_port))}", target: "_blank", class: "facebook-share-button" %>
+        <%= link_to raw('<i class="fa-brands fa-linkedin"></i>'), "https://www.linkedin.com/shareArticle?mini=true&url=#{CGI.escape(project_url(@project, host: request.host_with_port))}", target: "_blank", class: "linkedin-share-button" %>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Twitter
+    document.querySelectorAll('.twitter-share-button').forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.open(this.href, 'twitter-share', 'width=550,height=235');
+      });
+    });
+
+    // Facebook
+    document.querySelectorAll('.facebook-share-button').forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.open(this.href, 'facebook-share', 'toolbar=0,status=0,width=626,height=436');
+      });
+    });
+
+    // LinkedIn
+    document.querySelectorAll('.linkedin-share-button').forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.open(this.href, 'linkedin-share', 'width=550,height=600');
+      });
+    });
+});
+</script>

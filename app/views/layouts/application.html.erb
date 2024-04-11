@@ -1,16 +1,376 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr"> <!-- Spécifiez la langue ici -->
   <head>
-    <title>Pfsdn</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+      <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
+
+
+    <!-- Stylesheets -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+
+    <div class="cookie-popup" id="cookiePopup">
+      <p class="fontnav">SDN | Full Stack Developer</p>
+      <h3>Bienvenue</h3>
+      <h5 style="color: yellow;"><strong>Cookies et confidentialité</strong></h5>
+      <br>
+      En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour vous proposer des services et offres adaptés à vos centres d'intérêt.
+      <br>
+      <br>
+      <button class="accept-cookies" id="acceptPopup" onclick="acceptCookies()">J'accepte</button>
+      <button class="reject-cookies" onclick="rejectCookies()">Je refuse</button>
+    </div>
+
+
+    <nav class="navbar">
+      <div class="container-fluid">
+          <a id="homeLink" class="fontnav" style="cursor: pointer; text-decoration: none;" onclick="window.location.href='/';">SDN | Full Stack Developer</a>
+          <i class="fa-solid fa-bars"></i> <!-- Icône du menu -->
+          <ul class="menu">
+              <li><a class="navfont" href="<%= root_path %>">Accueil</a></li>
+              <li class="dropdown"><a id="lienMesFormules" class="navfont" href="/offers#mes-formules">Mes Formules</a></li>
+              <li><a id="lienMesProjets" class="navfont" href="/offers#mes-projets">Mes Projets</a></li>
+              <li><a class="navfont" href="<%= contact_path %>">Contact</a></li>
+          </ul>
+      </div>
+    </nav>
+
+
+    <div id="overlay">
+      <div class="animation-element"></div>
+      <div class="animation-element"></div>
+      <div class="animation-element"></div>
+      <div class="animation-element"></div>
+      <div class="animation-element"></div>
+      <div class="animation-element"></div>
+      <div class="animation-element"></div>
+      <div class="animation-element"></div>
+      <div class="animation-element"></div>
+      <div class="animation-element"></div>
+
+    </div>
+
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Retour en haut" aria-label="Retour en haut">↑</button>
+
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+      location="europe-west1"
+      project-id="neural-map-416915"
+      agent-id="4fe122bb-765d-498e-9e9f-8ced2bad1e02"
+      language-code="en"
+      max-query-length="-1">
+      <df-messenger-chat-bubble
+       chat-title="">
+      </df-messenger-chat-bubble>
+    </df-messenger>
+    <style>
+      df-messenger {
+        z-index: 1050;
+        position: fixed;
+        --df-messenger-font-color: #7870CA;
+        --df-messenger-font-family: Google Sans;
+        --df-messenger-chat-background: #fff;
+        --df-messenger-message-user-background: #f1f3f4;
+        --df-messenger-message-bot-background: #e8f0fe;
+        bottom: 16px;
+        right: 16px;
+      }
+    </style>
+
+
+    <footer class="footer d-flex justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col d-flex align-items-center">
+        <span>© SDN, Full Stack Developer</span>
+      </div>
+      <div class="col d-flex justify-content-end" style="margin-right: 6rem;">
+        <span>Mentions légales</span>
+      </div>
+    </footer>
+
+
+</body>
+
+    <script>
+    // Fonction pour rediriger vers la section 'Mes Formules' sur la page d'accueil
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionner le lien par son ID
+        var lienMesFormules = document.getElementById('lienMesFormules');
+
+        // Vérifier si l'URL actuelle est la racine ('/')
+        // Note : Ajustez cette condition selon l'exactitude de votre 'root_path'
+        if (window.location.pathname === '/') {
+            lienMesFormules.setAttribute('href', '#mes-formules');
+            // Ajouter un écouteur d'événements pour gérer le clic
+            lienMesFormules.addEventListener('click', function(e) {
+                e.preventDefault(); // Prévenir le comportement par défaut du lien
+                var sectionFormules = document.getElementById('mes-formules');
+                if (sectionFormules) {
+                    sectionFormules.scrollIntoView({behavior: "smooth"}); // Défiler vers la section
+                }
+            });
+        }
+    });
+    </script>
+
+
+    <script>
+    // Fonction pour rediriger vers la section 'Mes Projets' sur la page d'accueil
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionner le lien par son ID
+        var lienMesProjets = document.getElementById('lienMesProjets');
+
+        // Vérifier si l'URL actuelle est la racine ('/')
+        // Note : Ajustez cette condition selon l'exactitude de votre 'root_path'
+        if (window.location.pathname === '/') {
+            lienMesProjets.setAttribute('href', '#mes-projets');
+            // Ajouter un écouteur d'événements pour gérer le clic
+            lienMesProjets.addEventListener('click', function(e) {
+                e.preventDefault(); // Prévenir le comportement par défaut du lien
+                var sectionProjets = document.getElementById('mes-projets');
+                if (sectionProjets) {
+                    sectionProjets.scrollIntoView({behavior: "smooth"}); // Défiler vers la section
+                }
+            });
+        }
+    });
+    </script>
+
+
+    <script>
+    // Fonction pour afficher/masquer le menu
+    document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.querySelector('.fa-bars');
+    const menu = document.querySelector('.menu');
+
+    // Fonction pour basculer la visibilité du menu
+    menuIcon.addEventListener('click', function() {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Sélectionner tous les éléments cliquables du menu
+    const menuLinks = document.querySelectorAll('.menu a');
+
+    // Ajouter un écouteur d'événements à chaque lien pour masquer le menu après le clic
+    menuLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            // Masquer le menu
+            menu.style.display = 'none';
+        });
+    });
+});
+
+    </script>
+
+
+    <script> // Scroll to top button
+      document.addEventListener("DOMContentLoaded", function() {
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+      // Fonction pour vérifier la nécessité de défiler et ajuster la visibilité du bouton
+      function checkScrollNeeded() {
+        const totalPageHeight = document.body.scrollHeight;
+        const viewportHeight = window.innerHeight;
+
+        if (totalPageHeight > viewportHeight) {
+          // La page nécessite un défilement, vérifier la position de défilement actuelle pour afficher le bouton
+          window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              scrollToTopBtn.style.display = "block";
+            } else {
+              scrollToTopBtn.style.display = "none";
+            }
+          };
+        } else {
+          // La page ne nécessite pas de défilement, masquer le bouton
+          scrollToTopBtn.style.display = "none";
+        }
+      }
+
+      // Vérifier si nous sommes sur la page de contact
+      if (window.location.pathname !== "/contact" && !window.location.href.includes("contact")) {
+        // Assurez-vous que le bouton est initialement masqué jusqu'au défilement
+        scrollToTopBtn.style.display = "none";
+
+        // Ajouter l'écouteur d'événement pour le fonctionnement du bouton
+        scrollToTopBtn.addEventListener("click", function() {
+          document.body.scrollTop = 0; // Pour Safari
+          document.documentElement.scrollTop = 0; // Pour Chrome, Firefox, IE et Opera
+        });
+
+        // Appeler checkScrollNeeded au chargement et à chaque redimensionnement de la fenêtre
+        checkScrollNeeded();
+        window.onresize = checkScrollNeeded;
+      } else {
+        // Nous sommes sur la page de contact, masquer le bouton
+        scrollToTopBtn.style.display = "none";
+      }
+    });
+
+    </script>
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Check for cookie consent
+  const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+  if (cookiesAccepted === 'true') {
+    // Consent already given, no need to show popup or lock scroll
+    console.log("Cookie consent already given.");
+  } else {
+    // No consent given yet, show popup and lock scroll
+    document.documentElement.style.overflow = 'hidden';
+    document.getElementById("cookiePopup").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+  }
+
+  // Your existing script for adjusting match height and handling scroll for the footer can remain unchanged here
+});
+
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById("cookiePopup").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+  document.documentElement.style.overflow = ''; // Re-enable scrolling
+  setTimeout(() => {
+    const presentationSection = document.getElementById('presentation');
+    if (presentationSection) {
+      presentationSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, 2800);
+}
+
+function rejectCookies() {
+  window.location.href = 'https://www.google.com';
+}
+</script>
+
+
+<script>
+  $(document).ready(function() {
+    // Vérifie si la page actuelle n'est pas la page de contact
+    if (!window.location.href.includes("contact")) {
+      // Si ce n'est pas la page de contact, cible toutes les cartes et applique matchHeight
+      $('.cookie-popup').matchHeight();
+    }
+  });
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const footer = document.querySelector(".footer");
+  let lastScrollTop = 0;
+  let presentationOffset = null;
+
+  // Vérifier si on est sur la page 'offers index'
+  const isOffersIndexPage = document.body.classList.contains("offers-index");
+
+  if (isOffersIndexPage) {
+    const presentation = document.getElementById("presentation");
+    if (presentation) {
+      presentationOffset = presentation.offsetTop + presentation.offsetHeight;
+    }
+  }
+
+  window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (isOffersIndexPage && presentationOffset !== null) {
+      // Logique spécifique pour la page 'offers index'
+      if (currentScroll < lastScrollTop && currentScroll > presentationOffset) {
+        // Montrer le footer lors du défilement vers le haut et après avoir dépassé 'presentation'
+        footer.classList.remove("footer-hidden");
+      } else {
+        // Cacher le footer lors du défilement vers le bas
+        footer.classList.add("footer-hidden");
+      }
+    } else {
+      // Logique pour toutes les autres pages
+      if (currentScroll < lastScrollTop) {
+        // Montrer le footer lors du défilement vers le haut
+        footer.classList.remove("footer-hidden");
+      } else {
+        // Cacher le footer lors du défilement vers le bas
+        footer.classList.add("footer-hidden");
+      }
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Mise à jour de la position de défilement précédente
+  }, false);
+});
+</script>
+
+
+<script>
+// Fonction pour rediriger vers la page d'accueil
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('homeLink').addEventListener('click', function() {
+        window.location.href = '/';
+    });
+});
+</script>
+
+
+<script>
+// Fonction pour basculer l'affichage du chatbot
+function toggleChatbot() {
+    var dfMessenger = document.querySelector('df-messenger');
+    // Vérifier si le df-messenger est affiché
+    if (dfMessenger.style.display === 'none' || !dfMessenger.style.display) {
+        dfMessenger.style.display = 'block'; // Afficher le chatbot
+    } else {
+        dfMessenger.style.display = 'none'; // Masquer le chatbot
+    }
+}
+
+// Ajouter un écouteur d'événements au bouton ou à l'icône qui déclenche la fonction toggleChatbot
+document.addEventListener('DOMContentLoaded', function() {
+    var chatbotIcon = document.getElementById('chatbot-icon');
+    if (chatbotIcon) {
+        chatbotIcon.addEventListener('click', toggleChatbot);
+    }
+});
+</script>
+
+
+<script>
+// Service Worker registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Enregistrement réussi
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // Échec de l'enregistrement
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+</script>
+
+
+
+</body>
 </html>

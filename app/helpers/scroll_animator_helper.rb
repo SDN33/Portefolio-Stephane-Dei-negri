@@ -1,0 +1,2 @@
+module ScrollAnimatorHelper
+end

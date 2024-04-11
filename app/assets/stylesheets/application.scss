@@ -1,0 +1,420 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+*/
+@import 'pages/contact', 'offers/index', 'projects/show', "bootstrap", "font-awesome";
+
+
+
+
+$color-primary: #6F6BB2;
+$color-hover: #958cf96b;
+$color-background: white;
+$font-family-default: 'Roboto', sans-serif;
+
+// Importations
+
+
+
+
+#cookiePopup, #overlay, .footer-hidden {
+  display: none;
+}
+
+
+body, html {
+  overflow-x: hidden;
+  font-family: $font-family-default;
+  background: $color-background;
+  scroll-behavior: smooth;
+}
+
+#scrollToTopBtn {
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  position: relative;
+  left: 72rem;
+  bottom: 1rem;
+  border-radius: 1rem;
+  color: $color-background;
+  background-color: $color-primary !important; // Utilisation de la variable
+  border: none;
+
+  &:hover {
+    background-color: $color-hover !important; // Utilisation de la variable
+  }
+}
+
+/* cookie popup */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  overflow: hidden;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+
+.animation-element {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: $color-primary;
+  border-radius: 50%;
+  animation: moveAnimation 5s infinite alternate, shine 1.5s infinite ease-in-out; /* Ajoutez l'animation de brillance ici */
+}
+
+.animation-element:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0s, 0s; /* Ajoutez un délai pour l'animation de brillance si nécessaire */
+  background-color: #FFB9FF;
+}
+
+.animation-element:nth-child(2) {
+  top: 60%;
+  left: 40%;
+  animation-delay: 1s, 0.5s; /* Différents délais pour un effet décalé */
+}
+
+.animation-element:nth-child(3) {
+  top: 30%;
+  left: 80%;
+  animation-delay: 2s, 1s;
+  background-color: #FFB9FF;
+}
+
+.animation-element:nth-child(4) {
+  top: 70%;
+  left: 10%;
+  animation-delay: 3s, 1.5s;
+}
+
+.animation-element:nth-child(5) {
+  top: 50%;
+  left: 70%;
+  animation-delay: 4s, 2s;
+}
+
+.animation-element:nth-child(6) {
+  top: 10%;
+  left: 50%;
+  animation-delay: 5s, 2.5s;
+  background-color: #FFB9FF;
+}
+
+.animation-element:nth-child(7) {
+  top: 80%;
+  left: 30%;
+  animation-delay: 6s, 3s;
+}
+
+.animation-element:nth-child(8) {
+  top: 40%;
+  left: 90%;
+  animation-delay: 7s, 3.5s;
+  background-color: #FFB9FF;
+}
+
+.animation-element:nth-child(9) {
+  top: 90%;
+  left: 60%;
+  animation-delay: 8s, 4s;
+}
+
+.animation-element:nth-child(10) {
+  top: 0%;
+  left: 0%;
+  animation-delay: 9s, 4.5s;
+  background-color: #FFB9FF;
+}
+
+/* Définition de l'animation de brillance */
+@keyframes shine {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+
+
+@keyframes moveAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100px, 100px);
+  }
+}
+
+/* Style du popup de cookies */
+.cookie-popup {
+  position: fixed; /* Ajouté pour positionner le popup par rapport à la fenêtre du navigateur */
+  bottom: 13rem; /* Ajouté pour positionner le popup à 13rem du bas de la fenêtre du navigateur */
+  left: 0;
+  right: 0; /* Ajouté pour centrer le popup horizontalement */
+  margin-left: auto; /* Ajouté pour centrer le popup horizontalement */
+  margin-right: auto; /* Ajouté pour centrer le popup horizontalement */
+  width: 60%; /* Ajusté pour une largeur spécifique, à adapter selon vos besoins */
+  max-width: 600px; /* Optionnel: Pour limiter la largeur maximale du popup */
+  height: auto; /* Ajusté pour une hauteur spécifique, à adapter selon vos besoins */
+  background-color: rgb(0, 0, 0,);
+  color: $color-background;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border: 0.3rem solid $color-background;
+  box-shadow: #000 0px 0px 10px;
+
+}
+
+/* Media query pour les appareils mobiles avec une largeur maximale de 768px */
+@media only screen and (max-width: 768px) {
+  .cookie-popup {
+      bottom: 9rem; /* Réduit encore la distance par rapport au bas de l'écran */
+      width: 90%; /* Réduit la largeur en pourcentage */
+  }
+}
+
+/* Style pour les boutons */
+.accept-cookies {
+  background-color: $color-background; /* Couleur de fond du bouton J'accepte */
+  color: black; /* Couleur du texte du bouton J'accepte */
+  border: none; /* Supprime la bordure du bouton */
+  padding: 10px 20px; /* Ajoute un espace autour du texte */
+  text-align: center; /* Centre le texte horizontalement */
+  text-decoration: none; /* Supprime le soulignement du texte */
+  display: inline-block; /* Permet de mettre plusieurs boutons sur la même ligne */
+  font-size: 16px; /* Taille du texte */
+  margin: 4px 2px; /* Ajoute de l'espace autour du bouton */
+  cursor: pointer; /* Change le curseur au survol du bouton */
+  border-radius: 4px; /* Arrondit les coins du bouton */
+}
+
+.accept-cookies:hover {
+  background-color: grey; /* Couleur de fond du bouton J'accepte au survol */
+}
+
+.reject-cookies {
+  background-color: $color-primary; /* Couleur de fond du bouton Je refuse */
+  color: $color-background; /* Couleur du texte du bouton Je refuse */
+  border: none; /* Supprime la bordure du bouton */
+  padding: 10px 20px; /* Ajoute un espace autour du texte */
+  text-align: center; /* Centre le texte horizontalement */
+  text-decoration: none; /* Supprime le soulignement du texte */
+  display: inline-block; /* Permet de mettre plusieurs boutons sur la même ligne */
+  font-size: 16px; /* Taille du texte */
+  margin: 4px 2px; /* Ajoute de l'espace autour du bouton */
+  cursor: pointer; /* Change le curseur au survol du bouton */
+  border-radius: 4px; /* Arrondit les coins du bouton */
+}
+
+.reject-cookies:hover {
+  background-color: $color-hover; /* Couleur de fond du bouton Je refuse au survol */
+}
+
+
+/* Style de la navbar */
+
+.navbar .menu, .navbar .submenu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar {
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 100%; /* Assurez-vous que la navbar s'étend sur toute la largeur de la page */
+  z-index: 1020; /* Gardez la navbar au-dessus des autres éléments de contenu */
+  background-color: black; /* Couleur de fond de la navbar */
+  padding: 10px 0; /* Espacement interne de la navbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère à la navbar */
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+/* Afficher le sous-menu au survol */
+.navbar .dropdown:hover .submenu {
+  display: block;
+}
+
+/* Style supplémentaire pour les liens */
+.navbar a {
+  text-decoration: none;
+  display: block;
+  padding: 12px;
+}
+
+/* Style au survol des éléments du menu */
+.navbar .menu li:hover {
+  background-color: $color-background;
+}
+
+span {
+  font-size: 0.5rem;
+}
+
+/* Style du texte de la navbar */
+.fontnav {
+  color: $color-background; /* Couleur du texte */
+  font-size: 30px; /* Taille de la police */
+  margin: 0; /* Supprime les marges par défaut */
+  font-family: 'Libre Barcode 128 Text'; /* Police de caractères */
+}
+/* Media query pour les appareils mobiles avec une largeur maximale de 768px */
+@media only screen and (max-width: 768px) {
+  .fontnav {
+    font-size: 2rem;
+  }
+}
+
+/* Style des liens de la navbar */
+.navfont {
+  color: $color-background; /* Couleur du texte */
+  text-decoration: none; /* Supprime la soulignement des liens */
+  margin-right: 20px; /* Espacement entre les liens */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  font-size: 1rem;
+}
+
+/* Media query pour les appareils mobiles avec une largeur maximale de 768px */
+@media only screen and (max-width: 768px) {
+  .navfont {
+    margin-right: 0;
+    display: inline-block;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    left: -1.1rem;
+    padding-inline-start: 2rem;
+  }
+}
+
+/* Style des liens de la navbar au survol */
+.navfont:hover {
+  color: $color-hover; /* Changement de couleur au survol */
+  border-bottom: 1px solid $color-hover;
+}
+
+/* Masquer le menu sur les appareils mobiles */
+.menu {
+  display: none;
+}
+
+/* Afficher le menu en ligne sur les appareils de bureau */
+@media only screen and (min-width: 769px) {
+  .menu {
+      display: flex;
+      align-items: center;
+      display: none;
+  }
+  .fa-bars {
+    color: $color-background;
+    font-size: 1.5rem;
+
+  }
+
+  .fa-bars:hover {
+    color: $color-hover;
+
+  }
+
+}
+
+
+.fa-bars:hover {
+  color: $color-hover;
+
+}
+
+
+
+/* Footer */
+
+.footer {
+  position: fixed;
+  bottom: -2rem;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  color: $color-background;
+  z-index: 1020;
+  text-align: center;
+  height: 4rem;
+  z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres contenus */
+
+}
+
+
+
+.footer-hidden {
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.footer-info {
+  display: flex; /* Affiche les éléments en ligne */
+  justify-content: center; /* Centre les éléments horizontalement */
+  color: $color-background !important; /* Couleur du texte */
+}
+
+span {
+  margin-left: 2rem;
+}
+
+/* boss container */
+.boss-container {
+  width: 90%; /* Définit la largeur du conteneur à 90% de celle de son conteneur parent (généralement le <body>) */
+  max-width: 1200px; /* Conserve une largeur maximale pour les grands écrans */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+  padding: 2rem; /* Espace autour du contenu pour ne pas coller aux bords de l'écran */
+  box-sizing: border-box; /* S'assure que le padding ne déborde pas la largeur définie */
+}
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .boss-container {
+    padding: 15px; /* Réduit le padding sur les écrans plus petits */
+  }
+}
+
+@media (max-width: 768px) {
+  .boss-container {
+    padding: 10px; /* Réduit encore plus le padding pour les appareils mobiles */
+  }
+}
+
+@media (max-width: 480px) {
+  .boss-container {
+    padding: 5px; /* Minimise le padding pour les très petits appareils */
+  }
+}

@@ -25,6 +25,14 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+gem 'jquery-rails'
+gem 'font-awesome-sass'
+gem 'image_processing'
+gem 'dotenv-rails', groups: [:development, :test]
+gem "braintree", "~> 4.19.0"
+gem 'money-rails'
+gem 'bootstrap', '~> 5.3.2'
+gem 'dartsass-sprockets'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -58,4 +66,3 @@ group :development do
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 end
-

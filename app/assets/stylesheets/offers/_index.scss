@@ -1,0 +1,478 @@
+/* Styles globaux */
+body, html {
+  overflow-x: hidden !important;
+  font-family: 'Roboto', sans-serif;
+  background: white;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+
+/* Styles de base */
+.pitch {
+  padding-inline: 2rem;
+}
+.banner-container {
+  position: relative;
+  text-align: center;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* Media query pour les appareils mobiles avec une largeur maximale de 768px */
+@media only screen and (max-width: 768px) {
+  .banner {
+    width: 121%; /* Augmente légèrement la largeur */
+    height: auto; /* Utilisez 'auto' pour maintenir le rapport hauteur-largeur */
+    display: block;
+    position: relative;
+    left: -2rem;
+    padding-top: 2rem;
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Compteur */
+.counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  font-size: 20px !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px; /* Pour arrondir les bords du compteur */
+  animation: glitter 1.5s infinite alternate;
+}
+
+.counter i.fas {
+  margin-right: 5px;
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glitter {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Container principal et titres */
+.presentation-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transition: transform 0.3s ease; /* Ajoute une transition douce pour l'effet de grossissement */
+  margin-inline: 2rem;
+
+}
+
+.mb-4 {
+  margin-bottom: 15rem !important;
+  margin-top: 8rem;
+  width: 22rem;
+  padding-inline-end: 1rem;
+}
+
+.voir-plus {
+  display: block; /* Ou autre disposition selon vos besoins */
+  margin-top: 20px; /* Ajustez l'espacement au-dessus du bouton si nécessaire */
+}
+
+#popupbtn {
+  margin-top: 3rem;
+}
+
+
+.project-cards:hover {
+  transform: scale(1.1); /* Grossit l'icône de 10% */
+  .pro-title {
+    font-size: 1.5rem;
+    color: #F389BA;
+  }
+
+}
+
+h4 {
+  font-size: 1.3rem;
+  color: black; /* Ajustez la couleur selon votre thème */
+  font-weight: bolder !important;
+}
+
+.purple {
+  font-size: 1.5rem;
+  color: #7870CA !important;
+  font-weight: bolder !important;
+}
+
+.pro-title {
+  font-size: 1.3rem;
+  padding-bottom: 0.2rem;
+  font-weight: bold;
+}
+
+
+
+h6 {
+  font-size: 1rem;
+  padding-bottom: 0.2rem;
+}
+
+.welcome-title {
+  background: linear-gradient(150deg, #F389BA 27.79%, #6F6BB2 108.92%) !important;
+  color: white;
+  border-radius: 5%;
+  padding: 1rem;
+  margin-inline-start: 2rem;
+  margin-inline-end: 2rem;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+}
+
+.avatar-info-container {
+  display: flex;
+  align-items: center; /* Alignement vertical */
+  justify-content: center; /* Centrage horizontal */
+}
+
+.avatar-container {
+  position: relative;
+  cursor: pointer;
+  display: flex; /* Permet l'alignement en ligne des éléments enfants */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Alignement vertical */
+}
+
+/* Media query pour les appareils mobiles avec une largeur maximale de 768px */
+@media only screen and (max-width: 768px) {
+  .avatar-container {
+    position: relative;
+    bottom: 17rem;
+    left: -2rem;
+  }
+}
+
+.avatar-background {
+  position: absolute;
+  width: 18rem;
+  height: 17rem;
+  border-radius: 50%;
+  background-color: #6F6BB2;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-background 1.5s infinite alternate;
+  opacity: 0.5;
+  box-shadow: #000 0px 0px 1px;
+}
+
+/* Media query pour les appareils mobiles avec une largeur maximale de 768px */
+@media only screen and (max-width: 768px) {
+  .avatar-background {
+    width: 7rem; /* Largeur de base */
+    height: 7rem; /* Hauteur de base */
+  }
+}
+.avatar {
+  width: 16rem;
+  height: auto;
+  border-radius: 50%;
+  z-index: 1; /* S'assurer que l'avatar est au-dessus du fond */
+  position: relative;
+  animation: pulse-avatar 1.5s infinite alternate-reverse;
+  border: black 0px 0px 1rem dotted;
+}
+
+.avatar-text {
+  font-size: 1rem;
+  color: #000; /* Ajustez la couleur selon votre thème */
+  font-weight: bold;
+  margin-left: 20px; /* Espacement entre l'avatar et le texte */
+}
+
+/* Media query pour les appareils mobiles avec une largeur maximale de 768px */
+@media only screen and (max-width: 768px) {
+  .avatar-text {
+    font-size: 1rem;
+    color: #000;
+    font-weight: bold;
+    margin-left: -13rem;
+    text-align: center;
+  }
+}
+
+
+/* Réalisation et icônes */
+.icone-container {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 100px;
+  position: relative;
+}
+
+.icone-scroll {
+  display: flex;
+  width: calc(200%);
+  position: absolute;
+  animation: scrollInf 60s linear infinite;
+  justify-content: space-around;
+  align-items: center;
+  height: 6rem;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.icone {
+  flex: 0 0 auto;
+  width: 5rem;
+  height: auto;
+  margin: 0 10px;
+  display: inline-flex;
+  align-self: center;
+  transition: transform 0.3s ease; /* Ajoute une transition douce pour l'effet de grossissement */
+
+}
+
+.icone:hover {
+  animation-play-state: paused; /* Met l'animation de défilement en pause */
+  transform: scale(1.1); /* Grossit l'icône de 10% */
+}
+
+@keyframes scrollInf {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-avatar {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pulse-background {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.dialogue-bubble {
+  position: absolute;
+  bottom: 0rem; /* Ajusté pour le positionnement par rapport à l'avatar */
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: black; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  text-align: center;
+  width: auto; /* S'adapte au contenu */
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s, transform 0.3s ease;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+/* Réponses aux médias */
+@media (max-width: 768px) {
+  .dialogue-bubble {
+    position: absolute;
+    bottom: 6rem;
+    left: 12rem;
+  }
+}
+
+
+.avatar-container:hover .dialogue-bubble {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-20px);
+  transition-delay: 0s;
+}
+
+.card-img-top {
+  width: 50% !important;
+  height: auto !important;
+  position: relative;
+  left: 6.4rem;
+}
+
+/* Réponses aux médias */ /* Ajustement pour les petits écrans */
+@media (max-width: 768px) {
+  img.card-img-top, .avatar {
+    width: 8rem !important;
+    height: auto !important;
+
+  }
+
+  .card-img-top {
+    position: relative;
+    left: 5rem;
+  }
+
+
+  h2, h4 {
+    margin: 1rem;
+    font-size: 2.5rem !important;
+    font-size: 1.4rem !important;
+  }
+
+  h5 {
+    font-size: 1rem !important; /* Taille de police réduite pour les appareils mobiles */
+  }
+
+  .welcome-title {
+    font-size: 1.5rem !important;
+    margin-inline-start: 2rem;
+    margin-inline-end: 2rem;
+  }
+
+  .fab {
+    font-size: 1.5rem !important;
+  }
+
+  .swiper-slide {
+    position: relative;
+    left: 2.2rem;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: -20%;
+  }
+}
+
+.card {
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  padding-inline: 3rem;
+  display: flex;
+  flex-direction: column;
+  height: 31rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajoute une transition douce pour l'effet de grossissement */
+  width: auto;
+}
+
+.offer {
+  margin-top: unset !important;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 3rem #F389BA (0,0,6,6);
+
+  transform: scale(1.1); /* Grossit l'icône de 10% */
+  .btn.btn-primary.custom-btn {
+    background-color: #F389BA !important; /* Ajustez la couleur selon votre thème */
+  }
+
+}
+
+.card-title {
+  font-weight: bold !important;
+}
+
+.flex-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-body {
+  flex: 1; /* Permet à card-body de remplir l'espace disponible */
+}
+
+.card-footer {
+  margin-top: auto; /* Pousse le footer et le bouton vers le bas */
+}
+
+.btn.btn-primary.custom-btn {
+  margin-top: auto; /* Pousse le bouton vers le bas de la carte */
+  background-color: #6F6BB2 !important; /* Ajustez la couleur selon votre thème */
+  border: none;
+}
+
+.btn.btn-primary.custom-btn:hover {
+  background-color: #F389BA !important; /* Ajustez la couleur selon votre thème */
+}
+
+
+
+.project-image-popup img {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  left: 2rem;
+}
+
+
+
+
+@media (max-width: 480px) {
+  .avatar {
+    width: 6rem !important;
+    height: auto !important;
+  }
+
+  h2, h4 {
+    font-size: 2rem !important;
+    font-size: 1.2rem !important;
+  }
+
+  .fab {
+    font-size: 1.2rem !important;
+  }
+
+  .slide-image {
+    height: 60% !important; /* Ajustement pour les petits écrans */
+  }
+}
+
+/* Fin des styles globaux */
+
+@media (max-width: mobile) {
+  .presentation-container {
+    padding: 15px; /* Réduit le padding sur les écrans plus petits */
+  }
+}
+
+.boss-container {
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: 69rem;
+}

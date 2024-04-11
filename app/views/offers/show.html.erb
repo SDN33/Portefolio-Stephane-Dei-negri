@@ -1,0 +1,77 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="<%= @offer.description %>">
+  <meta property="og:title" content="SDN | <%= @offer.title %>">
+  <meta property="og:description" content="<%= @offer.description %>">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="<%= @offer.image_url %>">
+  <title>SDN | <%= @offer.title %></title>
+  <script
+  src="https://www.paypal.com/sdk/js?client-id=AV6jORHWZ_r3xOOrMtPUgHoTu9j1Oi-O8uVj6vOuqn24kSIUsZWOreSc179CtboygIqWpVhj3CgTfnuv&currency=EUR&components=messages"
+  data-namespace="PayPalSDK">
+</script>
+<script src="https://js.braintreegateway.com/web/dropin/1.42.0/js/dropin.min.js"></script>
+
+</head>
+
+<body>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 mb-4">
+      <div class="offer-show d-flex"> <!-- Utilisation de Flexbox pour la disposition -->
+        <!-- Colonne pour l'image/vidéo -->
+        <div class="offer-media mr-5" style="margin-top: 3rem; padding-right: 3rem;">
+          <% if @offer.image_url.present? %>
+            <video class="img-fluid" autoplay loop muted>
+              <source src="<%= @offer.image_url %>" type="video/mp4">
+              Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+          <% end %>
+          <h2 class="offer-title"><%= @offer.title %></h2>
+          <div class="offer-price mt-2">
+            <h5><%= number_to_currency(@offer.price, unit: "€") %></h5>
+          </div>
+          <div class="paypal-button-container"
+                data-pp-message
+                data-pp-style-layout="text"
+                data-pp-style-logo-type="inline"
+                data-pp-style-text-color="black"
+                data-pp-amount="<%= sprintf('%.2f', @offer.price.to_f) %>">
+          </div>
+          <p class="offer-description"><%= @offer.description %></p>
+        </div>
+
+        <!-- Colonne le paiement -->
+        <div class="offer-details flex-grow-1">
+          <!-- Module de paiement ici -->
+          <div id="dropin-container" class="mt-3" style="margin-top: 3rem; margin-left: 3rem !important;"></div>
+          <button id="submit-button" class="btn btn-primary custom-btn" style="margin-left: 10rem !important;">Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var clientToken = "<%= @client_token %>";
+  </script>
+  <script>
+    var button = document.querySelector('#submit-button');
+
+    braintree.dropin.create({
+      authorization: clientToken,
+      container: '#dropin-container'
+    }, function (createErr, instance) {
+      button.addEventListener('click', function () {
+        instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+          // Submit payload.nonce to your server
+        });
+      });
+    });
+  </script>
+</div>
+</body>
+
+
+
+
+
+</html>
