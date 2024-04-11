@@ -6,12 +6,7 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="<%= @offer.image_url %>">
   <title>SDN | <%= @offer.title %></title>
-  <script
-  src="https://www.paypal.com/sdk/js?client-id=AV6jORHWZ_r3xOOrMtPUgHoTu9j1Oi-O8uVj6vOuqn24kSIUsZWOreSc179CtboygIqWpVhj3CgTfnuv&currency=EUR&components=messages"
-  data-namespace="PayPalSDK">
-</script>
-<script src="https://js.braintreegateway.com/web/dropin/1.42.0/js/dropin.min.js"></script>
-
+  
 </head>
 
 <body>
@@ -50,23 +45,7 @@
       </div>
     </div>
   </div>
-  <script>
-    var clientToken = "<%= @client_token %>";
-  </script>
-  <script>
-    var button = document.querySelector('#submit-button');
 
-    braintree.dropin.create({
-      authorization: clientToken,
-      container: '#dropin-container'
-    }, function (createErr, instance) {
-      button.addEventListener('click', function () {
-        instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
-          // Submit payload.nonce to your server
-        });
-      });
-    });
-  </script>
 </div>
 </body>
 
