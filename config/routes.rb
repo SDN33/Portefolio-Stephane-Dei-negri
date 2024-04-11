@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'offers/index'
+  get '/offers/index', to: redirect('/')
   get 'offers/show'
   get 'projects/index'
   get 'projects/show'
