@@ -32,7 +32,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'money-rails'
 gem 'bootstrap', '~> 5.3.2'
 gem 'sassc-rails'
-
+gem 'httparty'
 
 
 # Use Redis adapter to run Action Cable in production
