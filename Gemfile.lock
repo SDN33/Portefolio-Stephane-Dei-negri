@@ -85,7 +85,6 @@ GEM
     bootstrap (5.3.2)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
-    braintree (4.19.0)
       builder (>= 3.2.4)
       rexml (>= 3.1.9)
     builder (3.2.4)
@@ -260,7 +259,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap (~> 5.3.2)
-  braintree (~> 4.19.0)
   debug
   dotenv-rails
   error_highlight (>= 0.4.0)

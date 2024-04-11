@@ -13,7 +13,6 @@ class OffersController < ApplicationController
     # L'offre spécifique @offer est déjà définie grâce à set_offer appelé par before_action
     # Aucun code supplémentaire n'est nécessaire ici si la vue show utilise simplement @offer
     # Dans votre contrôleur Rails, par exemple dans OffersController#show
-    @client_token = Braintree::ClientToken.generate
 
   end
 
