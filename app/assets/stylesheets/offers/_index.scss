@@ -476,3 +476,14 @@ h6 {
   margin-top: 2rem;
   width: 69rem;
 }
+
+.noir {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); /* Fonction cubic-bezier personnalisée */
+}
+
+.noir.visible {
+  opacity: 1;
+  transform: translateX(0);
+}

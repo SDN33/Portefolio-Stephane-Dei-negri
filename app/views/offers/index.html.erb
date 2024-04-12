@@ -405,6 +405,27 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+// Observer pour les éléments visibles
+document.addEventListener("DOMContentLoaded", function() {
+    const target = document.getElementById('mes-formules');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible'); // Pour retirer la classe si nécessaire
+            }
+        });
+    }, {
+        threshold: 0.25 // L'élément doit être à 50% visible pour déclencher l'animation
+    });
+
+    if (target) {
+        observer.observe(target);
+    }
+});
+</script>
 
 </body>
 </html>
