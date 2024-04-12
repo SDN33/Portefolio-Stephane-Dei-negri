@@ -391,6 +391,13 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 
+ <script>
+    // Empêche le clic droit sur toute la page
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();  // Annule l'événement contextmenu
+    }, false);
+  </script>
+
 
 
 </body>
