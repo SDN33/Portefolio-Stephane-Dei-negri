@@ -34,15 +34,20 @@ body, html {
   }
 }
 
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .swiper-container {
+  perspective: 1000px; /* Ajoute une perspective à l'ensemble du conteneur */
   width: 100%;
   height: 100%;
+}
+
+.swiper-slide img {
+  transition: transform 0.3s ease-out; /* Assure une transition douce */
+  transform: rotateY(0deg) rotateX(0deg); /* Initial state */
+}
+
+.swiper-slide img:hover {
+  transform: scale(1.1) rotateY(-10deg) rotateX(-10deg); /* Incline l'image sur les axes Y et X */
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.2); /* Ajoute une ombre pour un effet plus profond */
 }
 
 
@@ -260,8 +265,10 @@ h6 {
 
 .icone:hover {
   animation-play-state: paused; /* Met l'animation de défilement en pause */
-  transform: scale(1.1); /* Grossit l'icône de 10% */
+  transform: scale(1.1) rotateY(-10deg) rotateX(-10deg); /* Incline l'image sur les axes Y et X */
 }
+
+
 
 @keyframes scrollInf {
   0% { transform: translateX(0); }
