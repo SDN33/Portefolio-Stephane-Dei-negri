@@ -241,37 +241,50 @@
 
     <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Check for cookie consent
-  const cookiesAccepted = localStorage.getItem('cookiesAccepted');
-  if (cookiesAccepted === 'true') {
-    // Consent already given, no need to show popup or lock scroll
-    console.log("Cookie consent already given.");
-  } else {
-    // No consent given yet, show popup and lock scroll
-    document.documentElement.style.overflow = 'hidden';
-    document.getElementById("cookiePopup").style.display = "block";
-    document.getElementById("overlay").style.display = "block";
-  }
-
-  // Your existing script for adjusting match height and handling scroll for the footer can remain unchanged here
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    if (cookiesAccepted === 'true') {
+        console.log("Cookie consent already given.");
+    } else {
+        // Show the popup regardless of whether consent has been previously rejected or not yet given
+        document.documentElement.style.overflow = 'hidden';
+        document.getElementById("cookiePopup").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+        if (cookiesAccepted === 'false') {
+            updatePopupForRejection(); // Update the popup to show that cookies have been rejected
+        }
+    }
 });
 
 function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById("cookiePopup").style.display = "none";
-  document.getElementById("overlay").style.display = "none";
-  document.documentElement.style.overflow = ''; // Re-enable scrolling
-  setTimeout(() => {
-    const presentationSection = document.getElementById('presentation');
-    if (presentationSection) {
-      presentationSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, 2800);
+    localStorage.setItem('cookiesAccepted', 'true');
+    updatePopupForAcceptance(); // Optionally update the popup or hide it if you wish
 }
 
 function rejectCookies() {
-  window.location.href = 'https://www.google.com';
+    localStorage.setItem('cookiesAccepted', 'false');
+    updatePopupForRejection(); // Keep the popup visible with updated content
 }
+
+function updatePopupForRejection() {
+    const popupContent = document.getElementById("cookiePopup");
+    popupContent.innerHTML = `
+        <p class="fontnav">SDN | Full Stack Developer</p>
+        <h3>Bienvenue</h3>
+        <h5 style="color: yellow;"><strong>Cookies et confidentialité</strong></h5>
+        <br>
+        Vous avez refusé l'utilisation de cookies non essentiels. Vous ne pouvez pas naviguer sur le site avec des fonctionnalités limitées.
+        <br><br>
+        <button class="accept-cookies" id="acceptPopup" onclick="acceptCookies()">Changer d'avis et accepter</button>
+    `;
+}
+
+function updatePopupForAcceptance() {
+    const popupContent = document.getElementById("cookiePopup");
+    popupContent.style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+    document.documentElement.style.overflow = ''; // Re-enable scrolling
+}
+
 </script>
 
 
