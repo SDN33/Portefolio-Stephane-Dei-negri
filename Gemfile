@@ -33,6 +33,8 @@ gem 'money-rails'
 gem 'bootstrap', '~> 5.3.2'
 gem 'sassc-rails'
 gem 'httparty'
+gem 'rack-cors'
+
 
 
 # Use Redis adapter to run Action Cable in production

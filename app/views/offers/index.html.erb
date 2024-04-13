@@ -29,6 +29,11 @@
 
   <!-- Script JS pour Swiper (aucun changement ici, assurer l'unicité des ressources) -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Stylesheet de Font Awesome -->
+  <link rel="preload" href="http://127.0.0.1:3000/assets/application-b1febe60a0f14f2962bb5cc1624ed9863635dbd8c649649cce88cd5e0c899531.css" as="style">
+  <link rel="stylesheet" href="http://127.0.0.1:3000/assets/application-b1febe60a0f14f2962bb5cc1624ed9863635dbd8c649649cce88cd5e0c899531.css">
+
 </head>
 
 <body class="offers-index">
@@ -156,7 +161,7 @@
                   <% end %>
                   <p class="card-text-info card-description"><%= offer.description %></p>
                   <div class="card-image" style="display: none;">
-                    <%= image_tag offer.image_url, alt: "Image de l'offre", class: "img-fluid" %>
+                    <%= image_tag offer.image_url, alt: "Image de l'offre", class: "img-fluid", loading:"lazy" %>
                   </div>
                 </div>
                 <div class="card-footer text-center">
@@ -209,7 +214,7 @@
             </div>
             <!-- Popup d'image (affiché lors du survol) -->
             <div class="project-image-popup" style="display: none;">
-              <video class="project-video" width="360" height="auto" autoplay loop muted>
+              <video class="project-video" width="360" height="auto" preload="none" autoplay loop muted>
                 <source src="<%= project.image_url %>" type="video/mp4">
                 Votre navigateur ne supporte pas la balise vidéo.
               </video>
@@ -227,17 +232,17 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <!-- Utilisez des classes au lieu de styles inline pour les images -->
-        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/none/path/s13f4f4e39aaa19fb/image/ib6aaf3aa918c2d85/version/1592565960/image.jpg" alt="Slide 1" style="justify-content: center; align-items: center; "></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://res.cloudinary.com/daroyxenr/image/upload/q_auto/v1712516129/image_pawn5w.webp" alt="Slide 2" style="justify-content: center; align-items: center;"></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/i7acae0982659e94b/version/1592565960/image.jpg" alt="Slide 3" style="justify-content: center; align-items: center;"></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=png/path/s13f4f4e39aaa19fb/image/i06f99f084dc1475c/version/1592565960/image.png" alt="Slide 4" style="justify-content: center; align-items: center;"></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://res.cloudinary.com/daroyxenr/image/upload/q_auto/v1712503269/flyer-bar_lvcyvv.webp" alt="Slide 5" style="justify-content: center; align-items: center; height: 60%; width: 68%;"></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/i960a8776b565ca54/version/1592617548/image.jpg" alt="Slide 7" style="justify-content: center; align-items: center;"></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/ic816b43a45c085d7/version/1592617548/image.jpg" alt="Slide 8" style="justify-content: center; align-items: center;"></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://res.cloudinary.com/daroyxenr/image/upload/v1712502927/cupcake_flyer_jgtujo.webp" alt="Slide 8" style="justify-content: center; align-items: center; height: 82%; width: 68%;"></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=png/path/s13f4f4e39aaa19fb/image/ib6bf39b2e29e113f/version/1592565960/image.png" alt="Slide 9" style="justify-content: center; align-items: center;"></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/i11a0134cee7b07cb/version/1592565960/image.jpg" alt="Slide 10" style="justify-content: center; align-items: center;"></div>
-        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/ic047128a614719a9/version/1592565960/image.jpg" alt="Slide 11" style="justify-content: center; align-items: center;"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/none/path/s13f4f4e39aaa19fb/image/ib6aaf3aa918c2d85/version/1592565960/image.jpg" alt="Slide 1" style="justify-content: center; align-items: center;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://res.cloudinary.com/daroyxenr/image/upload/q_auto/v1712516129/image_pawn5w.webp" alt="Slide 2" style="justify-content: center; align-items: center;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/i7acae0982659e94b/version/1592565960/image.jpg" alt="Slide 3" style="justify-content: center; align-items: center;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=png/path/s13f4f4e39aaa19fb/image/i06f99f084dc1475c/version/1592565960/image.png" alt="Slide 4" style="justify-content: center; align-items: center;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://res.cloudinary.com/daroyxenr/image/upload/q_auto/v1712503269/flyer-bar_lvcyvv.webp" alt="Slide 5" style="justify-content: center; align-items: center; height: 60%; width: 68%;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/i960a8776b565ca54/version/1592617548/image.jpg" alt="Slide 7" style="justify-content: center; align-items: center;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/ic816b43a45c085d7/version/1592617548/image.jpg" alt="Slide 8" style="justify-content: center; align-items: center;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://res.cloudinary.com/daroyxenr/image/upload/v1712502927/cupcake_flyer_jgtujo.webp" alt="Slide 8" style="justify-content: center; align-items: center; height: 82%; width: 68%;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=png/path/s13f4f4e39aaa19fb/image/ib6bf39b2e29e113f/version/1592565960/image.png" alt="Slide 9" style="justify-content: center; align-items: center;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/i11a0134cee7b07cb/version/1592565960/image.jpg" alt="Slide 10" style="justify-content: center; align-items: center;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/ic047128a614719a9/version/1592565960/image.jpg" alt="Slide 11" style="justify-content: center; align-items: center;" loading="lazy"></div>
         <!-- Répétez pour les autres slides -->
       </div>
       <br><br>
