@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/projects/show', to: 'projects#show'
   get '/offers/index', to: 'offers#index'
   get 'contact', to: 'pages#contact'
+  get 'mentions_legales', to: 'pages#mentions_legales'
   get '/geocode', to: 'offers#index'
 
   post '/contact', to: 'contacts#create', as: 'contact_submission'

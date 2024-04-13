@@ -26,7 +26,15 @@ $font-family-default: 'Roboto', sans-serif;
 // Importations
 
 
+a {
+  text-decoration: none;
+  color: $color-background;
+}
 
+a:hover {
+  text-decoration: none;
+  color: $color-hover;
+}
 
 #cookiePopup, #overlay, .footer-hidden {
   display: none;
@@ -312,7 +320,7 @@ span {
     margin-right: 0;
     display: inline-block;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgb(255, 255, 255);
     position: relative;
     left: -1.1rem;
     padding-inline-start: 2rem;
