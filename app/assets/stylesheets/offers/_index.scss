@@ -398,6 +398,7 @@ h6 {
   height: 31rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajoute une transition douce pour l'effet de grossissement */
   width: auto;
+  background: transparent !important;
 }
 
 .offer {
@@ -426,10 +427,14 @@ h6 {
 
 .card-body {
   flex: 1; /* Permet à card-body de remplir l'espace disponible */
+  text-decoration: none;
+  background: transparent !important;
 }
 
 .card-footer {
   margin-top: auto; /* Pousse le footer et le bouton vers le bas */
+  text-decoration: none;
+  background: transparent !important;
 }
 
 .btn.btn-primary.custom-btn {
