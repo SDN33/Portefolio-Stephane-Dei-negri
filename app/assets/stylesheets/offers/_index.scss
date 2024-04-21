@@ -504,3 +504,16 @@ h6 {
   opacity: 1;
   transform: translateX(0);
 }
+
+ /* Default style for the image */
+ #responsive-image {
+  display: block;
+  margin: auto;
+  width: 20%;
+}
+
+@media (max-width: 768px) {
+  #responsive-image {
+    width: 35%;
+  }
+}
