@@ -50,7 +50,14 @@
     <nav class="navbar">
       <div class="container-fluid">
           <a id="homeLink" class="fontnav" style="cursor: pointer; text-decoration: none;" onclick="window.location.href='/';">SDN | Full Stack Developer</a>
-          <i class="fa-solid fa-bars"></i> <!-- Icône du menu -->
+
+          <div class="menu-wrapper">
+            <div class="navicon">
+              <a href="https://www.linkedin.com/in/stephane-dn" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
+              <a href="https://github.com/SDN33" target="_blank" class="social-icon github"><i class="fab fa-github"></i></a>
+            </div>
+            <i class="fa-solid fa-bars"></i> <!-- Icône du menu -->
+          </div>
           <ul class="menu">
               <li><a class="navfont" href="<%= root_path %>">Accueil</a></li>
               <li class="dropdown"><a id="lienMesFormules" class="navfont" href="/offers#mes-formules">Mes Formules</a></li>

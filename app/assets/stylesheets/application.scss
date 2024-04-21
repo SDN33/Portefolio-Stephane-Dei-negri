@@ -259,6 +259,31 @@ body, html {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère à la navbar */
 }
 
+.navbar .menu-wrapper {
+  display: flex;             /* Active Flexbox */
+  align-items: center;       /* Centre les éléments verticalement */
+  position: relative;        /* Position relative pour le conteneur */
+}
+
+.fa-solid.fa-bars {
+  margin-right: 1rem;        /* Espacement de 1rem à droite de l'icône du menu */
+}
+
+.navicon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .navicon {
+    display: none; /* Cache les éléments de la classe .navicon sur les appareils mobiles */
+  }
+}
+
+
 .submenu {
   display: none;
   position: absolute;
