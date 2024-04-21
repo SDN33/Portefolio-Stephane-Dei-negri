@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'payments/create'
+  get 'payments/capture'
   get '/offers/index', to: redirect('/')
   get 'offers/show'
   get 'projects/index'
@@ -21,7 +23,10 @@ Rails.application.routes.draw do
   get '/offers/index', to: 'offers#index'
   get 'contact', to: 'pages#contact'
   get 'mentions_legales', to: 'pages#mentions_legales'
-  get '/geocode', to: 'offers#index'
+  post '/payments/create', to: 'payments#create'
+  post '/payments/capture', to: 'payments#capture'
+
+
 
   post '/contact', to: 'contacts#create', as: 'contact_submission'
 

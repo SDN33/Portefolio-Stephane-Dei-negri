@@ -6,41 +6,52 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="<%= @offer.image_url %>">
   <title>SDN | <%= @offer.title %></title>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAA8R3BOfDl2leQhYFnkI0LH2NQyWhTgk7qV1X2CcqnBibC6akO8NIzwv_nLKVC2gSXZiFx263OsZx3hbs&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
 
 </head>
 
 <body>
+<br><br>
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8 mb-4">
-      <div class="offer-show"> <!-- Utilisation de Flexbox pour la disposition -->
-        <!-- Colonne pour l'image/vidéo -->
-        <div class="offer-media mx-auto d-block" style="margin-top: 3rem;">
+      <div class="row"> <!-- Nouvelle ligne pour la disposition côte à côte -->
+        <!-- Colonne pour la card -->
+        <div class="col-md-9">
           <% if @offer.image_url.present? %>
-            <video class="img-fluid mx-auto d-block" style="padding: 1rem;" autoplay loop muted>
+            <video class="img-fluid" autoplay loop muted>
               <source src="<%= @offer.image_url %>" type="video/mp4">
               Votre navigateur ne supporte pas la balise vidéo.
             </video>
           <% end %>
+          <br>
           <h2 class="offer-title text-center"><%= @offer.title %></h2>
-          <div class="offer-price mt-2">
-            <h5 class="text-center" style="padding: 1rem;">
-              <%= number_to_currency(@offer.price, unit: "€") %>
-            </h5>
-
+          <div class="offer-price mt-2 text-center">
+            <h5><%= number_to_currency(@offer.price, unit: "€") %></h5>
           </div>
           <p class="offer-description text-center"><%= @offer.description %></p>
-          <a class="btn btn-primary custom-btn d-block mx-auto" style="margin-top: 3rem; margin-bottom: 3rem;" href="<%= contact_path %>">Contacter</a>
+          <% if @offer.title == "Web App" %> <!-- Condition pour afficher le bouton Contacter -->
+            <div class="text-center mt-3 mb-3">
+              <a class="btn btn-primary" href="<%= contact_path %>">Contacter</a>
+            </div>
+          <% end %>
+        </div>
+        <!-- Colonne pour le bouton PayPal -->
+        <div class="col-md-3 d-flex align-items-center">
+          <div id="paypal-container-WYVAED5YAJ94Q" class="w-100"></div> <!-- Assurez-vous que le conteneur PayPal est adapté à la largeur -->
         </div>
       </div>
     </div>
   </div>
-
 </div>
 </body>
 
 
 
-
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "WYVAED5YAJ94Q",
+  }).render("#paypal-container-WYVAED5YAJ94Q")
+</script>
 
 </html>
