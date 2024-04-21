@@ -15,20 +15,63 @@
 */
 @import 'pages/contact', 'offers/index', 'projects/show', "bootstrap", "font-awesome";
 
-
-
-
 $color-primary: #6F6BB2;
 $color-hover: #958cf96b;
-$color-background: white;
 $font-family-default: 'Roboto', sans-serif;
+
+:root {
+  --background-color: #fff;
+  --text-color: #000000;
+  --link-color: $color-hover;
+  a {
+    color: var(--background-color);
+  }
+}
+
+.fa-solid {
+  color: var(--text-color);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --background-color: #000000;
+  --text-color: #fff;
+  --link-color: $color-hover;
+
+  p, .droits, html, i, .fa-solid {
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+
+  html {
+    background-color: var(--background-color) !important;
+  }
+
+  .fa-solid, i {
+    color: var(--text-color) !important;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: $font-family-default;
+}
+
+a {
+  color: var(--background-color);
+  &:hover {
+    color: $color-hover;
+  }
+}
+
 
 // Importations
 
 
 a {
   text-decoration: none;
-  color: $color-background;
+  color: var(--link-color);
 }
 
 a:hover {
@@ -41,12 +84,20 @@ a:hover {
 }
 
 
-body, html {
+html {
+  background-color: var(--background-color);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
   overflow-x: hidden;
   font-family: $font-family-default;
-  background: $color-background;
   scroll-behavior: smooth;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
+
 
 #scrollToTopBtn {
   width: 4rem;
@@ -56,7 +107,7 @@ body, html {
   left: 72rem;
   bottom: 1rem;
   border-radius: 1rem;
-  color: $color-background;
+  color: white;
   background-color: $color-primary !important; // Utilisation de la variable
   border: none;
 
@@ -185,12 +236,12 @@ body, html {
   max-width: 600px; /* Optionnel: Pour limiter la largeur maximale du popup */
   height: auto; /* Ajusté pour une hauteur spécifique, à adapter selon vos besoins */
   background-color: rgb(0, 0, 0,);
-  color: $color-background;
+  color: white;
   padding: 1rem;
   text-align: center;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  border: 0.3rem solid $color-background;
+  border: 0.3rem solid white;
   box-shadow: #000 0px 0px 10px;
 
 }
@@ -205,7 +256,7 @@ body, html {
 
 /* Style pour les boutons */
 .accept-cookies {
-  background-color: $color-background; /* Couleur de fond du bouton J'accepte */
+  background-color: white; /* Couleur de fond du bouton J'accepte */
   color: black; /* Couleur du texte du bouton J'accepte */
   border: none; /* Supprime la bordure du bouton */
   padding: 10px 20px; /* Ajoute un espace autour du texte */
@@ -224,7 +275,7 @@ body, html {
 
 .reject-cookies {
   background-color: $color-primary; /* Couleur de fond du bouton Je refuse */
-  color: $color-background; /* Couleur du texte du bouton Je refuse */
+  color: white; /* Couleur du texte du bouton Je refuse */
   border: none; /* Supprime la bordure du bouton */
   padding: 10px 20px; /* Ajoute un espace autour du texte */
   text-align: center; /* Centre le texte horizontalement */
@@ -267,6 +318,10 @@ body, html {
 
 .fa-solid.fa-bars {
   margin-right: 1rem;        /* Espacement de 1rem à droite de l'icône du menu */
+}
+
+.fa-solid.fa-bars:hover {
+  transform: scale(1.1);  /* Slightly enlarge the icon on hover */
 }
 
 .navicon {
@@ -317,7 +372,7 @@ span {
 
 /* Style du texte de la navbar */
 .fontnav {
-  color: $color-background; /* Couleur du texte */
+  color: white; /* Couleur du texte */
   font-size: 30px; /* Taille de la police */
   margin: 0; /* Supprime les marges par défaut */
   font-family: 'Libre Barcode 128 Text'; /* Police de caractères */
@@ -331,7 +386,7 @@ span {
 
 /* Style des liens de la navbar */
 .navfont {
-  color: $color-background; /* Couleur du texte */
+  color: white; /* Couleur du texte */
   text-decoration: none; /* Supprime la soulignement des liens */
   margin-right: 20px; /* Espacement entre les liens */
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -371,7 +426,7 @@ span {
       display: none;
   }
   .fa-bars {
-    color: $color-background;
+    color: white;
     font-size: 1.5rem;
 
   }
@@ -386,7 +441,7 @@ span {
 
 .fa-bars:hover {
   color: $color-hover;
-
+  transform: scale(1.1);  /* Slightly enlarge the icon on hover */
 }
 
 
@@ -399,7 +454,7 @@ span {
   left: 0;
   width: 100%;
   background-color: black;
-  color: $color-background;
+  color: white;
   z-index: 1020;
   text-align: center;
   height: 4rem;
@@ -417,7 +472,7 @@ span {
 .footer-info {
   display: flex; /* Affiche les éléments en ligne */
   justify-content: center; /* Centre les éléments horizontalement */
-  color: $color-background !important; /* Couleur du texte */
+  color: white !important; /* Couleur du texte */
 }
 
 span {
@@ -450,5 +505,20 @@ span {
 @media (max-width: 480px) {
   .boss-container {
     padding: 5px; /* Minimise le padding pour les très petits appareils */
+  }
+}
+
+
+.darkmode {
+  position: relative;
+  right: -3rem;
+  cursor: pointer;
+  color: white;
+  background: $color-primary;
+}
+
+@media only screen and (max-width: 768px) {
+  .darkmode {
+    display: none; /* Cache l'icône de mode sombre sur les appareils mobiles */
   }
 }
