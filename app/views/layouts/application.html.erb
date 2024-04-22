@@ -418,13 +418,34 @@ function toggleDarkMode() {
     localStorage.setItem('theme', newTheme); // Save theme to localStorage
 }
 
-// Load theme from localStorage
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light theme
-    document.body.setAttribute('data-theme', savedTheme);
-});
+function loadTheme() {
+    // Check for a saved theme in localStorage
+    const savedTheme = localStorage.getItem('theme');
+    // Use matchMedia to check if the user prefers dark mode
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Check for mobile device
+    const isMobileDevice = window.matchMedia('(max-width: 768px)').matches;
+    // Check for large screen (e.g., desktop)
+    const isLargeScreen = window.matchMedia('(min-width: 1025px)').matches;
 
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+    } else {
+        // Apply dark mode if the user prefers dark mode and is not on a large screen
+        // Or if the device is a mobile device
+        if ((prefersDarkMode && !isLargeScreen) || isMobileDevice) {
+            document.body.setAttribute('data-theme', 'dark');
+        } else {
+            document.body.setAttribute('data-theme', 'light');
+        }
+    }
+}
+
+// Listen for when the document is fully loaded
+document.addEventListener('DOMContentLoaded', loadTheme);
 </script>
+
+
 
 
 
