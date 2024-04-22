@@ -232,9 +232,15 @@ h6 {
     font-size: 1rem;
     color: #000;
     font-weight: bold;
-    margin-left: -13rem;
+    margin-left: -11rem;
     text-align: center;
   }
+
+  .noir2 {
+    position: relative;
+    left: 0.3rem;
+  }
+
 }
 
 
@@ -461,7 +467,7 @@ h6 {
 
 @media (max-width: 480px) {
   .avatar {
-    width: 6rem !important;
+    width: 5rem !important;
     height: auto !important;
   }
 
