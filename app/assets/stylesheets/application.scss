@@ -38,7 +38,7 @@ $font-family-default: 'Roboto', sans-serif;
   --text-color: #fff;
   --link-color: $color-hover;
 
-  p, .droits, html, i, .fa-solid {
+  p, .droits, html, i, .fa-solid, .navfont {
     color: var(--text-color);
     background-color: var(--background-color);
   }
