@@ -320,10 +320,11 @@ body {
   top: 0%;
   left: 0;
   width: 100%; /* Assurez-vous que la navbar s'étend sur toute la largeur de la page */
+  height: auto; /* Hauteur de la navbar */
   z-index: 1020; /* Gardez la navbar au-dessus des autres éléments de contenu */
   background-color: black; /* Couleur de fond de la navbar */
   padding: 10px 0; /* Espacement interne de la navbar */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère à la navbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Ajoute une ombre légère à la navbar */
 }
 
 .navbar .menu-wrapper {
