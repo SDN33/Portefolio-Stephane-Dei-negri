@@ -34,7 +34,7 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());    
+      gtag('js', new Date());
 
       gtag('config', 'G-7FK9HKM92L');
     </script>
@@ -255,55 +255,57 @@
       }
     });
 
-    </script>
+</script>
 
 
-    <script>
+<script>
+// Fonction pour accepter les cookies
+
 document.addEventListener("DOMContentLoaded", function() {
-    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
-    if (cookiesAccepted === 'true') {
-        console.log("Cookie consent already given.");
-    } else {
-        // Show the popup regardless of whether consent has been previously rejected or not yet given
-        document.documentElement.style.overflow = 'hidden';
-        document.getElementById("cookiePopup").style.display = "block";
-        document.getElementById("overlay").style.display = "block";
-        if (cookiesAccepted === 'false') {
-            updatePopupForRejection(); // Update the popup to show that cookies have been rejected
-        }
-    }
-});
+       const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+       if (cookiesAccepted === 'true') {
+           console.log("Cookie consent already given.");
+       } else {
+           document.documentElement.style.overflow = 'hidden';
+           document.getElementById("cookiePopup").style.display = "block";
+           document.getElementById("overlay").style.display = "block";
+           if (cookiesAccepted === 'false') {
+               updatePopupForRejection();
+           }
+       }
+   });
 
-function acceptCookies() {
-    localStorage.setItem('cookiesAccepted', 'true');
-    updatePopupForAcceptance(); // Optionally update the popup or hide it if you wish
-}
+   function acceptCookies() {
+       localStorage.setItem('cookiesAccepted', 'true');
+       updatePopupForAcceptance();
+   }
 
-function rejectCookies() {
-    localStorage.setItem('cookiesAccepted', 'false');
-    updatePopupForRejection(); // Keep the popup visible with updated content
-}
+   function rejectCookies() {
+       localStorage.setItem('cookiesAccepted', 'false');
+       updatePopupForRejection();
+   }
 
-function updatePopupForRejection() {
-    const popupContent = document.getElementById("cookiePopup");
-    popupContent.innerHTML = `
-        <p class="fontnav">SDN | Full Stack Developer</p>
-        <h3>Bienvenue</h3>
-        <h5 style="color: yellow;"><strong>Cookies et confidentialité</strong></h5>
-        <br>
-        Vous avez refusé l'utilisation de cookies non essentiels. Vous ne pouvez pas naviguer sur le site avec des fonctionnalités limitées.
-        <br><br>
-        <button class="accept-cookies" id="acceptPopup" onclick="acceptCookies()">Changer d'avis et accepter</button>
-    `;
-}
+   function updatePopupForRejection() {
+       const popupContent = document.getElementById("cookiePopup");
+       popupContent.innerHTML = `
+           <p class="fontnav">SDN | Full Stack Developer</p>
+           <h3>Bienvenue</h3>
+           <h5 style="color: yellow;"><strong>Cookies et confidentialité</strong></h5>
+           <br>
+           Vous avez refusé l'utilisation de cookies non essentiels. Vous pouvez naviguer sur le site avec des fonctionnalités limitées.
+           <br><br>
+           <button class="accept-cookies" id="acceptPopup" onclick="acceptCookies()">Changer d'avis et accepter</button>
+       `;
+   }
 
-function updatePopupForAcceptance() {
-    const popupContent = document.getElementById("cookiePopup");
-    popupContent.style.display = "none";
-    document.getElementById("overlay").style.display = "none";
-    document.documentElement.style.overflow = ''; // Re-enable scrolling
-}
+   function updatePopupForAcceptance() {
+       const popupContent = document.getElementById("cookiePopup");
+       popupContent.style.display = "none";
+       document.getElementById("overlay").style.display = "none";
+       document.documentElement.style.overflow = '';
+   }
 
+   
 </script>
 
 
@@ -452,6 +454,13 @@ function loadTheme() {
 // Listen for when the document is fully loaded
 document.addEventListener('DOMContentLoaded', loadTheme);
 </script>
+
+<script>
+
+
+
+
+
 
 
 
