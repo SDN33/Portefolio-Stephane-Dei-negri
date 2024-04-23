@@ -50,6 +50,22 @@ $font-family-default: 'Roboto', sans-serif;
   .fa-solid, i {
     color: var(--text-color) !important;
   }
+
+  .fa-mobile-screen-button::before {
+    color: var(--text-color) !important;
+  }
+
+  .fa-briefcase:before {
+    color: var(--text-color) !important;
+  }
+
+  .fa-pencil::before {
+    color: var(--text-color) !important;
+  }
+
+  .icone-scroll {
+    background-color: var(--text-color) !important;
+  }
 }
 
 body {
