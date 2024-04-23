@@ -479,7 +479,6 @@ span {
 }
 
 
-
 .footer-hidden {
   transform: translateY(100%);
   transition: transform 0.3s ease;
@@ -531,6 +530,12 @@ span {
   cursor: pointer;
   color: white;
   background: $color-primary;
+  border-radius: 20%;
+}
+
+.darkmode:hover {
+  background: $color-hover;
+  transform: scale(1.1);  /* Slightly enlarge the icon on hover */
 }
 
 @media only screen and (max-width: 768px) {
