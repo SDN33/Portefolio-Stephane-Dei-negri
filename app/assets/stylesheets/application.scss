@@ -539,8 +539,18 @@ span {
   transform: scale(1.1);  /* Slightly enlarge the icon on hover */
 }
 
+.ml {
+  position: relative;
+  right: -3rem;
+}
+
 @media only screen and (max-width: 768px) {
   .darkmode {
     display: none; /* Cache l'icône de mode sombre sur les appareils mobiles */
+  }
+
+  .ml {
+    position: relative;
+    right: -4rem;
   }
 }
