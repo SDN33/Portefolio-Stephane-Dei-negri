@@ -544,6 +544,11 @@ span {
   right: -3rem;
 }
 
+.ml:hover {
+  transform: scale(1.1);  /* Slightly enlarge the icon on hover */
+  color: $color-hover;
+}
+
 @media only screen and (max-width: 768px) {
   .darkmode {
     display: none; /* Cache l'icône de mode sombre sur les appareils mobiles */
@@ -552,5 +557,9 @@ span {
   .ml {
     position: relative;
     right: -4rem;
+  }
+
+  span {
+    margin-left: 2rem;
   }
 }
