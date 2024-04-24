@@ -96,6 +96,7 @@
 
     <button id="scrollToTopBtn" title="Retour en haut" aria-label="Retour en haut">↑</button>
 
+
     <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
     <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
     <df-messenger
@@ -208,57 +209,54 @@
     });
 });
 
-</script>
+    </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-    function checkScrollNeeded() {
-      const totalPageHeight = document.body.scrollHeight;
-      const viewportHeight = window.innerHeight;
+    <script> // Scroll to top button
+      document.addEventListener("DOMContentLoaded", function() {
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-      if (totalPageHeight > viewportHeight) {
-        let isThrottled = false;
-        window.onscroll = function() {
-          if (!isThrottled) {
-            toggleButtonVisibility();
-            isThrottled = true;
-            setTimeout(() => {
-              isThrottled = false;
-            }, 100); // Only execute once every 100ms
-          }
-        };
+      // Fonction pour vérifier la nécessité de défiler et ajuster la visibilité du bouton
+      function checkScrollNeeded() {
+        const totalPageHeight = document.body.scrollHeight;
+        const viewportHeight = window.innerHeight;
+
+        if (totalPageHeight > viewportHeight) {
+          // La page nécessite un défilement, vérifier la position de défilement actuelle pour afficher le bouton
+          window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              scrollToTopBtn.style.display = "block";
+            } else {
+              scrollToTopBtn.style.display = "none";
+            }
+          };
+        } else {
+          // La page ne nécessite pas de défilement, masquer le bouton
+          scrollToTopBtn.style.display = "none";
+        }
+      }
+
+      // Vérifier si nous sommes sur la page de contact
+      if (window.location.pathname !== "/contact" && !window.location.href.includes("contact")) {
+        // Assurez-vous que le bouton est initialement masqué jusqu'au défilement
+        scrollToTopBtn.style.display = "none";
+
+        // Ajouter l'écouteur d'événement pour le fonctionnement du bouton
+        scrollToTopBtn.addEventListener("click", function() {
+          document.body.scrollTop = 0; // Pour Safari
+          document.documentElement.scrollTop = 0; // Pour Chrome, Firefox, IE et Opera
+        });
+
+        // Appeler checkScrollNeeded au chargement et à chaque redimensionnement de la fenêtre
+        checkScrollNeeded();
+        window.onresize = checkScrollNeeded;
       } else {
+        // Nous sommes sur la page de contact, masquer le bouton
         scrollToTopBtn.style.display = "none";
       }
-    }
-
-    function toggleButtonVisibility() {
-      if (window.pageYOffset > 20) {  // Simplified and more consistent scroll check
-        scrollToTopBtn.style.display = "block";
-      } else {
-        scrollToTopBtn.style.display = "none";
-      }
-    }
-
-    scrollToTopBtn.addEventListener("click", function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    if (!window.location.href.includes("/contact")) {
-      checkScrollNeeded();
-      window.onresize = checkScrollNeeded;
-    } else {
-      scrollToTopBtn.style.display = "none";
-    }
-  });
 </script>
-
-
-
-
-
 
 
 <script>
@@ -400,20 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<script>
-// Service Worker registration
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-      // Enregistrement réussi
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function(err) {
-      // Échec de l'enregistrement
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  });
-}
-</script>
+
 
 <script>
     // Empêche le clic droit sur toute la page
