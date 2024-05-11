@@ -155,6 +155,12 @@
                   <% else %>
                     <p class="card-text"><strong>Sur devis uniquement</strong></p>
                   <% end %>
+                  <p class="card-text-info card-description">
+                  <% if offer.duration == 0 %>
+                    <i class="fa-solid fa-clock"></i> <strong> à définir</strong>
+                  <% else %>
+                    <i class="fa-solid fa-clock"></i> <strong> environ <%= offer.duration %> jours</strong>
+                  <% end %>
                   <p class="card-text-info card-description"><%= offer.description %></p>
                   <div class="card-image" style="display: none;">
                     <%= image_tag offer.image_url, alt: "Image de l'offre", class: "img-fluid", loading:"lazy" %>
@@ -239,6 +245,7 @@
         <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=png/path/s13f4f4e39aaa19fb/image/ib6bf39b2e29e113f/version/1592565960/image.png" alt="Slide 9" style="justify-content: center; align-items: center;" loading="lazy"></div>
         <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/i11a0134cee7b07cb/version/1592565960/image.jpg" alt="Slide 10" style="justify-content: center; align-items: center;" loading="lazy"></div>
         <div class="swiper-slide"><img class="swiper-slide" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s13f4f4e39aaa19fb/image/ic047128a614719a9/version/1592565960/image.jpg" alt="Slide 11" style="justify-content: center; align-items: center;" loading="lazy"></div>
+        <div class="swiper-slide"><img class="swiper-slide" src="https://res.cloudinary.com/daroyxenr/image/upload/c_scale,w_400/v1715459155/Black_Eye_do8fwh.webp" alt="Slide 12" style="justify-content: center; align-items: center;" loading="lazy"></div>
         <!-- Répétez pour les autres slides -->
       </div>
       <br><br>

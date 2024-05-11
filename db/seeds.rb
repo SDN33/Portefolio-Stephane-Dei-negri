@@ -6,9 +6,9 @@ Project.delete_all
 
 # Crée les nouvelles offres
 offers = [
-  { title: "Logo Pro", price_cents: 9900, description: "Création sur-mesure d'un logo captivant. Idéal pour startups/freelancers et particuliers. Boostez votre identité visuelle !", image_url: "https://res.cloudinary.com/daroyxenr/video/upload/c_scale,q_auto:best,w_209/v1712502338/3_wwki6z.mp4" },
-  { title: "Site Portfolio", price_cents: 49900, description: "Développement d'un site portfolio personnalisé. Responsive, SEO-friendly. Idéal pour les professionnels désirant valoriser leur activité.", image_url: "https://res.cloudinary.com/daroyxenr/video/upload/c_scale,q_auto:best,w_209/v1712502339/1_wz0qwu.mp4" },
-  { title: "Web App", price_cents: 0, description: "Création complète de Web App sur-mesure. Sécurité et performance. Solution idéale pour entreprises voulant innover et se démarquer.", image_url: "https://res.cloudinary.com/daroyxenr/video/upload/c_scale,q_auto:best,w_209/v1712502340/2_stoq6v.mp4" },
+  { title: "Logo Pro", price_cents: 9900, duration: 7, description: "Création sur-mesure d'un logo captivant. Idéal pour startups/freelancers et particuliers. Boostez votre identité visuelle !", image_url: "https://res.cloudinary.com/daroyxenr/video/upload/c_scale,q_auto:best,w_209/v1712502338/3_wwki6z.mp4" },
+  { title: "Site Portfolio", duration: 14, price_cents: 49900, description: "Développement d'un site portfolio personnalisé. Responsive, SEO-friendly. Idéal pour les professionnels désirant valoriser leur activité.", image_url: "https://res.cloudinary.com/daroyxenr/video/upload/c_scale,q_auto:best,w_209/v1712502339/1_wz0qwu.mp4" },
+  { title: "Web App", duration: 0, price_cents: 0, description: "Création complète de Web App sur-mesure. Sécurité et performance. Solution idéale pour entreprises voulant innover et se démarquer.", image_url: "https://res.cloudinary.com/daroyxenr/video/upload/c_scale,q_auto:best,w_209/v1712502340/2_stoq6v.mp4" },
 ]
 
 # Insère les offres dans la base de données
