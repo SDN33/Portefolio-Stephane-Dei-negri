@@ -35,17 +35,32 @@
               <a class="btn btn-primary" href="<%= contact_path %>">Contacter</a>
             </div>
           <% end %>
+          <p class="card-text-info card-description text-center">
+                  <% if @offer.duration == 0 %>
+                    <i class="fa-solid fa-clock"></i> <strong> à définir</strong>
+                  <% else %>
+                    <i class="fa-solid fa-clock"></i> <strong> environ <%= @offer.duration %> jours</strong>
+                  <% end %> <br>
         </div>
         <!-- Colonne pour le bouton PayPal -->
-        <div class="col-md-3 d-flex align-items-center">
+        <div class="col-md-3 d-flex align-items-center" id="paypal">
           <div id="paypal-container-WYVAED5YAJ94Q" class="w-100"></div> <!-- Assurez-vous que le conteneur PayPal est adapté à la largeur -->
         </div>
       </div>
     </div>
   </div>
 </div>
-</body>
 
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content text-center">
+    <span class="close" onclick="fermerModal()">&times;</span>
+    <h5 class="textmodal text-center purple"><strong>N'oubliez pas ! 😉</strong></h2>
+    <p class="textmodal"><strong>Après votre achat, veuillez m'envoyer un message via le formulaire de contact pour me donner une description de votre idée ou projet.</strong></p>
+  </div>
+</div>
+
+</body>
 
 
 <script>
@@ -54,4 +69,22 @@
   }).render("#paypal-container-WYVAED5YAJ94Q")
 </script>
 
+<script>
+// Fonction pour afficher le modal
+function afficherModal() {
+  var modal = document.getElementById("modal");
+  modal.style.display = "block";
+}
+
+// Fonction pour fermer le modal
+function fermerModal() {
+  var modal = document.getElementById("modal");
+  modal.style.display = "none";
+}
+
+// Appeler la fonction afficherModal() lorsque la page est chargée
+window.onload = function() {
+  afficherModal();
+};
+</script>
 </html>

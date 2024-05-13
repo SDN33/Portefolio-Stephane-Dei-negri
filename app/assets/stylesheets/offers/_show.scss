@@ -8,3 +8,62 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+
+#paypal {
+  position: relative;
+  left: 7rem; /* Ajustez cette valeur selon vos besoins */
+}
+
+
+/* Taille de police de base */
+body {
+  font-size: 16px; /* Taille de police de base */
+}
+
+/* Style pour le bouton de fermeture */
+.close {
+  color: #d10c0c;
+  position: absolute;
+  top: 1rem; /* 1 rem correspond à la taille de police de base */
+  right: 1rem; /* 1 rem correspond à la taille de police de base */
+  font-size: 1.75rem; /* 1.75 rem correspond à environ 28px */
+  font-weight: bold;
+  cursor: pointer; /* Ajout du curseur pointer */
+
+}
+
+/* Style pour le bouton de fermeture au survol */
+.close:hover {
+  color: #eaeaea;
+}
+
+/* Contenu du modal */
+.modal-content {
+  background-color: #000000 !important;
+  padding: 1.25rem; /* 1.25 rem correspond à environ 20px */
+  border: 1px solid #888;
+  width: 35rem; /* 35 rem correspond à environ 560px */
+  position: absolute;
+  bottom: 0; /* Fixer en bas de la page */
+  left: 50%; /* Centrer horizontalement */
+  transform: translateX(-50%); /* Ajuster pour centrer horizontalement */
+}
+
+.textmodal {
+  margin-bottom: 1rem; /* 1 rem correspond à la taille de police de base */
+  color: white;
+}
+
+/* Ajout de styles pour le modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}

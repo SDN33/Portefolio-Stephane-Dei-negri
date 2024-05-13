@@ -66,6 +66,29 @@ $font-family-default: 'Roboto', sans-serif;
   .icone-scroll {
     background-color: var(--text-color) !important;
   }
+
+  .card {
+    box-shadow: 0 0 0 0.1rem var(--text-color) !important;
+  }
+
+  .modal-content {
+    background-color: white !important;
+  }
+
+  .textmodal {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: $font-family-default;
+  }
+
+  .container {
+    background-color: var(--background-color);
+  }
 }
 
 body {
