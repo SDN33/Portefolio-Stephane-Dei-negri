@@ -34,6 +34,9 @@ gem 'bootstrap', '~> 5.3.2'
 gem 'sassc-rails'
 gem 'httparty'
 gem 'rack-cors'
+gem 'execjs'
+# gem 'therubyracer', platforms: :ruby
+
 
 
 

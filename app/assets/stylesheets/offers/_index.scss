@@ -100,14 +100,16 @@ body {
   justify-content: center;
   transition: transform 0.3s ease; /* Ajoute une transition douce pour l'effet de grossissement */
   margin-inline: 2rem;
-
 }
+
+
 
 .mb-4 {
   margin-bottom: 15rem !important;
   margin-top: 8rem;
   width: 22rem;
   padding-inline-end: 1rem;
+
 }
 
 .voir-plus {
@@ -122,10 +124,16 @@ body {
 
 .project-cards:hover {
   transform: scale(1.1); /* Grossit l'icône de 10% */
+  box-shadow: 0px 4px 3rem #F389BA (0,0,6,6);
+  border: #6F6BB2 0px 0px 1rem solid;
+
+
   .pro-title {
     font-size: 1.5rem;
     color: #F389BA;
   }
+
+
 
 }
 
@@ -465,6 +473,14 @@ h6 {
 }
 
 
+.project-slider {
+  width: 80%;
+  margin: auto;
+}
+
+.project-slide {
+  padding: 0 10px;
+}
 
 
 @media (max-width: 480px) {
