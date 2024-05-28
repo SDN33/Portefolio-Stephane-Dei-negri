@@ -18,21 +18,21 @@
   color: #7870CA;
 }
 
-p {
+a {
   color: #007bff; /* Couleur par défaut des liens */
   text-decoration: none; /* Pas de soulignement */
 }
 
-p:hover {
+a:hover {
   color: #0056b3; /* Couleur des liens au survol */
   text-decoration: underline; /* Soulignement au survol */
 }
 
 /* Styles supplémentaires si nécessaires */
-p:visited {
+a:visited {
   color: #551a8b; /* Couleur des liens visités */
 }
 
-p:active {
+a:active {
   color: #ff0000; /* Couleur des liens actifs */
 }
